@@ -5,7 +5,7 @@ const {exec, spawnSync} = require("child_process");
  * @param cmd {string}
  * @return {Promise<string>}
  */
-exports.execShellCommand = (cmd) => {
+module.exports = (cmd) => {
     return new Promise((resolve, reject) => {
         exec(cmd, (error, stdout, stderr) => {
             if (error) {
@@ -14,8 +14,4 @@ exports.execShellCommand = (cmd) => {
             resolve(stdout ? stdout : stderr);
         });
     });
-}
-
-exports.execCommand = (cmd) => {
-    return spawnSync("zsh", ["-c", cmd], {stdio: [process.stdin, process.stdout, process.stderr]});
 }

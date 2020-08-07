@@ -1,8 +1,9 @@
-const {execCommand, execShellCommand} = require("./common");
+const execShellCommand = require("./common/execShellCommand");
+
 
 const application = process.env.application || 'ns8-protect-api';
 const fromStage = process.env.fromStage || 'test';
-const toStage = process.env.toStage || 'pgtestgreen';
+const toStage = process.env.toStage || 'pgtstblue';
 
 const fromPrefix = `/${application}/${fromStage}/`;
 const toPrefix = `/${application}/${toStage}/`;
