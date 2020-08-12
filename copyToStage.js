@@ -1,13 +1,13 @@
 const execShellCommand = require("./common/execShellCommand");
 
 //---Change here or run with env variables
-const fromStage = process.env.fromStage || 'pgtstgreen';
-const toStage = process.env.toStage || 'tstpg';
-const allowProdChanges = process.env.toStage==='true';
+const fromStage = process.env.fromStage;
+const toStage = process.env.toStage;
+const allowProdChanges = process.env.prod==='true';
 //---------
 
 async function main() {
-    // You must comment out this paragraph if you want to manipulate prod variables
+
     if (!allowProdChanges && (toStage === 'prod' || toStage === 'production')) {
         throw new Error(`I refuse to change your production variables! Comment out this paragraph to allow that`)
     }

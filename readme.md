@@ -10,12 +10,28 @@ These scripts can be run like any node js file. i.e `envVar1=foo envVar2=bar nod
 You must have an active aws mfa session to successfully execute these.
 
 
-### setParam
-`name="/foo" value="bar" node setParam.js`
+### Scripts
+
+#### setParam
+`name="/foo" value="bar" type="SecureString" node setParam.js`
+
+Upserts a param of `name` with `value`.
+`type` has a default of `SecureString` if not defined, but this can be set to any param type supported by AWS SSM e.g `String`.
 
 
-### deleteParam
+#### deleteParam
+
 `name="/foo" node deleteParam.js`
 
-### copyToStage
-`fromStage="test" toStage="myNewStage" node copyToStage.js`
+Deletes a param specified by name.
+
+
+#### copyToStage
+`fromStage=test toStage=myNewStage node copyToStage.js`
+
+Copies all variables associated with one stage to another stage.
+
+By default, you cannot copy params INTO the prod stage.
+To make changes to the prod stage, set the optional env var `prod=true`.
+
+
