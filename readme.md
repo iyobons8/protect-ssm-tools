@@ -34,4 +34,3 @@ Copies all variables associated with one stage to another stage.
 By default, you cannot copy params INTO the prod stage.
 To make changes to the prod stage, set the optional env var `prod=true`.
 
-
