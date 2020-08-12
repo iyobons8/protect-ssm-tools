@@ -1,12 +1,13 @@
 const execShellCommand = require("./common/execShellCommand");
 
-
-const name = process.env.SSM_NAME || '/ns8-protect-api/pgtstblue/postgresql/password';
+//---Change here or run with env variables
+const target = process.env.name || '/ns8-protect-api/pgtstblue/postgresql/password';
+//-------
 
 async function main() {
     await execShellCommand(
         `aws ssm delete-parameter \\
-            --name ${name}`
+            --name ${target}`
     )
 }
 

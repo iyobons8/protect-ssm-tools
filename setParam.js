@@ -1,9 +1,10 @@
 const execShellCommand = require("./common/execShellCommand");
 
-
-const name = process.env.SSM_NAME || '/ns8-protect-api/pgtst/mysql/password';
-const value = process.env.SSM_VALUE || 'FPbEO*SamO2c90%';
-const type = process.env.SSM_TYPE || 'SecureString';
+//---Change here or run with env variables
+const name = process.env.name || '/ns8-protect-api/pgtst/mysql/password';
+const value = process.env.value || 'FPbEO*SamO2c90%';
+const type = process.env.type || 'SecureString';
+//------
 
 async function main() {
     await execShellCommand(
